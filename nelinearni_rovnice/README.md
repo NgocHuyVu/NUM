@@ -11,7 +11,7 @@
   Př. $y = $x^2 +x+5
 
 ## **2. Numerické řešení nelineárních rovnic**
-Zabývá se výpočtem reálných kořenů neliární rovnice $f(x)=0$
+Zabývá se výpočtem reálných kořenů nelineární rovnice $f(x)=0$
 
 **Myšlenka numerické řešení**: 
 Je-li funkce $f$ spojitá na intervalu $<a,b>$ a plátí-li

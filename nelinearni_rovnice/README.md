@@ -2,7 +2,7 @@
 
 ## **1. Linerární rovnice a nelineární rovnice**
 
-**Lineární rovnice** je rovnice, která lze ekvivaletními úpravami upravit na tvar $ax+b = 0$. Typicky obsahují členy. kde jsou proměnné v první mocnině a žádné násobky nebo složitější funkce. 
+**Lineární rovnice** je rovnice, která lze ekvivalentními úpravami upravit na tvar $ax+b = 0$. Typicky obsahují členy. kde jsou proměnné v první mocnině a žádné násobky nebo složitější funkce. 
 
   Př. $y = 2x+3$
 

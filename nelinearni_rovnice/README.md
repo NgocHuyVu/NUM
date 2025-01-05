@@ -96,7 +96,7 @@ cat("Kořen přibližně:", root, "\n")
 ## **3. Metoda regula fasi**
 Plátí-li <p align="center">$f(a).f(b)<0$</p> pak v intervalu $<a,b>$ leží alespoň jeden kořen rovnice $f(x)=0$.
 
-Intervaly postupně zužujeme v průsečéku přímky, která spojuje body $(a,f(a)), (b, f(b))$ přímkou s osou x. Ten průsečík vypočítáme pdole vzorce $p_k = a_k - \frac{(b_k - a_k)}{f(b_k) - f(a_k)} f(a_k)
+Intervaly postupně zužujeme v průsečíku přímky, která spojuje body $(a,f(a)), (b, f(b))$ přímkou s osou x. Ten průsečík vypočítáme pdole vzorce $p_k = a_k - \frac{(b_k - a_k)}{f(b_k) - f(a_k)} f(a_k)
     = b_k - \frac{(b_k - a_k)}{f(b_k) - f(a_k)} f(b_k)$
 
 

@@ -20,7 +20,7 @@ Je-li funkce $f$ spojitá na intervalu $<a,b>$ a plátí-li
 
 pak v intervalu $<a,b>$ leží alespoň jeden kořen rovnice $f(x)=0$.
 
-Používáme iteraèní metody, které počítají posloupnost ${x^k}$ konvergující pro $k→ ∞$ ke kořenu $\\overline{x}$ .
+Používáme iterační metody, které počítají posloupnost ${x^k}$ konvergující pro $k→ ∞$ ke kořenu $\\overline{x}$ .
 
 ## **3. Metoda bisekce = metoda půlení intervalu**
 Plátí-li <p align="center">$f(a).f(b)<0$</p> pak v intervalu $<a,b>$ leží alespoň jeden kořen rovnice $f(x)=0$.

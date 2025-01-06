@@ -263,3 +263,109 @@ for (i in seq_along(results)) {
   print(sprintf("x%d: %.10f", i+1, results[i]))
 }
 ```
+# Numerické řešení algebraické rovnic polynomu n-tého stupně $P_n(x)=0$
+
+## 1. Mnohočleny $P_n(x)=0$
+
+**Polynom = mnohočlen** je matematický výraz složený z proměnné, konstant a operací sčítání, odčítání a násobení.
+
+Výraz ve obecném tvaru $a_n x^n + a_{n-1} x^{n-1} + \cdots + a_2 x^2 + a_1 x + a_0$ nazýváme mnohočlenem (polynomem) n-tého stupně s jednou proměnnou $x \in \mathbb{R}$
+
+$a_n, a_{n-1}, ..., a_0$ jsou koeficienty mnohočlenu
+    
+Kořenem mnohočlenu $P_n(x)$ je takové číslo $b \in \mathbb{R}$
+
+Stupeň polynomu $P_n(x)$ je nejvyšší mocnina proměnné x u níž je nenulový koeficient. Udává, jak moc je polynom "roztačen" ve směru proměnné
+
+## 2. Numerické řešení nelineárních rovnic polynomu n-tého stupně
+
+Zadání je polynom n-tého stupně $P_n(x)=0$
+
+$a_n x^n + a_{n-1} x^{n-1} + \cdots + a_2 x^2 + a_1 x + a_0 = 0$
+
+Nalezeme aproximace kořenů.
+
+## 3. Honerovo-Newtonova metoda
+Kombinuje dvě metody
+- **Hornerovo schéma** vypočítá hodnotu polynomu $P(x)$ a jeho derivaci $P'(x)$ v určítém bodě x. Díky tomu minimalizuje počet násobení a sčítání potřebných k výpočtu.
+- **Newtonova metoda** využívá derivace funkce k aproximaci kořene.
+
+Postup Horner-Newtonovy metody 
+- Používáme Hornerovo schéma k výpočtu hodnoty polynomu $P(x)$ a hodnoty derivace $P'(x)$ v aktuálním bodě x.
+  
+  Obecný polynom můžeme vyjádřit jako
+
+  $P(x) = a_n x^n + a_{n-1} x^{n-1} + \cdots + a_1 x + a_0$
+
+  Hornerovo schéma přepisuje tento polynom do rekurzivní podoby:
+
+  $P(x) = (((a_n x + a_{n-1})x + a_{n-2})x + \cdots + a_1)x + a_0$
+
+  Shrnuje postupně jednotlivé členy polynomu, začíná od nejvyšší mocniny a pokračuje k nižším mocninám:
+
+  $b_n=a_n$
+  
+  Iterativně vypočítáme
+  
+  $b_{i-1}=b_i.x+a_{i-1}$ pro $i = ,n , n-1, ...,1
+
+  Konečná hodnota $b_0$ je P(x)
+
+  Potom iterativně vypočítáme hodnotu derivaci $P'(x)$
+
+  $c_{i-1} = c_i.x+b_{i-1}$ pro $i=n-1, n-2, ..., 1$
+
+  kde $c_{i-1}=b_n$
+- Aplikujme do Newtonovy vzorce
+  
+  $x_k = x_{k-1} - \frac{P(x)}{P'(x)}$
+- Opakujeme, dokud $x_k$ není menší než požadovaná přenost
+
+Např. 
+
+$P(x) = 2x^3 - 6x^2 + 2x - 1$
+
+Pro x = 3:
+
+Výpočet P(x):
+
+$b_3=a_3=2, b_2= b_3.x-a_{3-2}=2.3-6=0, b_1=2, b_0=5$
+
+P(3) = 5
+
+Výpočet $P'(x)$:
+
+$c_2=b_3=2, c_1=c_2.3+b_2=6, c_0=c_1.3+b_1=20$
+
+$P'(3)=20$
+
+```
+NewtonHorner <- function(a, xstart, acc=0.0000001){
+  n <- length(a)
+  x <- xstart
+  citac <- 0
+  repeat{
+    citac <- citac + 1
+    y <- a[n]
+    yd <- y
+    for(i in (n-1):2){
+      y <- y*x+a[i]
+      yd <- yd*x+y
+    }
+    y <- y*x+a[1]
+    
+    # Výpočet korekce Newtonovou metodou
+    x <- x-(y/yd)
+    
+    cat(citac, ": x =", x, ", P(x) =", y, ", P'(x) =", yd, "\n")
+    
+    if(abs(dx) < acc) {
+      print(citac)
+      return(x)
+    }
+  }
+}
+NewtonHorner(c(1,-8,-72,382, 727, 2310), 1)
+```
+
+

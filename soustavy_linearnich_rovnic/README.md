@@ -47,17 +47,48 @@ Algoritmus:
 
   &nbsp;&nbsp;&nbsp;pro $k =1, 2, ..., n-1$
 
-  &nbsp;&nbsp;&nbsp;$m_{ik}^{(k-1)} = -\frac{a_{ik}^{(k-1)}}{a_{kk}^{(k-1)}}$
+  &nbsp;&nbsp;&nbsp; $m_{ik}^{(k-1)} = -\frac{a_{ik}^{(k-1)}}{a_{kk}^{(k-1)}}$
 
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pro $i = k+1, k+2, …, n$ přičteme $m_{ik}$-násobek k-tého řádku i-tému řádku
 
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $a_{ij}^k = a_{ij}^{(k-1)} + m_{ik}^{(k-1)} a_{kj}^{(k-1)}$
 
   zpětný chod
 
-## 4. LU rozklad
+  &nbsp;&nbsp;&nbsp;pro $i = n, n-1, …, 1$
 
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $x_i = \frac{1}{a_{ii}^{(i-1)}} \left( a_{i,n+1}^{(i-1)} - \sum_{j=i+1}^{n} a_{ij}^{(i-1)} x_j \right)$
+
+- Vystup: $\mathbf{x} = (x_1, x_2, \dots, x_n)$
+## 4. Gaussova eliminační metoda s výběrem hlavního prvku
+
+Cílem je vybrat hlavní prvek, aby byl co největší v absolutní hodnotě, provede se eliminace ve všech zbývajících řádcích neobsahujících hlavní prvek. Lze snadno realizovat přehrazováním řádků.
+
+V první fázi přímého chodu GEM se za hlavní prvek vybere v absolutní hodnotě největší číslo z prvního sloupce matice a eliminace se provedou ve všech řádcích neobsahujících hlavní prvek. V k-té fázi se celý výpočet omezí na řádky, v nichž dosud hlavní prvek nebyl vydán. Nejprve se jako hlavní prvek vybere v absolutní hodnotě největší z čísel ležících v k-tém sloupci a příslušných řádcích a pak se provedou eliminace ve zbývajících řádcích. Tento postup lze snadno realizovat přehazováním řádků. 
+
+Algoritmus:
+
+Algoritmus:
+
+- Vstup: $n, A = a_{ij}^0, \mathbf{b} = a_{i,n+1}^0$
+  
+  přímý chod
+
+  &nbsp;&nbsp;&nbsp;pro $k =1, 2, ..., n-1$
+
+  &nbsp;&nbsp;&nbsp; $m_{ik}^{(k-1)} = -\frac{a_{ik}^{(k-1)}}{a_{kk}^{(k-1)}}$
+
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pro $i = k+1, k+2, …, n$ přičteme $m_{ik}$-násobek k-tého řádku i-tému řádku
+
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $a_{ij}^k = a_{ij}^{(k-1)} + m_{ik}^{(k-1)} a_{kj}^{(k-1)}$
+
+  zpětný chod
+
+  &nbsp;&nbsp;&nbsp;pro $i = n, n-1, …, 1$
+
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $x_i = \frac{1}{a_{ii}^{(i-1)}} \left( a_{i,n+1}^{(i-1)} - \sum_{j=i+1}^{n} a_{ij}^{(i-1)} x_j \right)$
+
+- Vystup: $\mathbf{x} = (x_1, x_2, \dots, x_n)$
 ## 5
  
 

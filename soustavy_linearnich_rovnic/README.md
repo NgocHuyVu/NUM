@@ -34,6 +34,28 @@ Máme 2 typy metody
 
 ## 3. Gaussova eliminační metoda 
 
+Má dvě části:
+
+- **Přímý chod** je úprava výchozí soustavy $Ax=b$ na soustavu $Ux=y$ s horní trojúhelníkovou schodovitou maticí $U$.
+- **Zpětný chod** je výpočet řešení ze soustavy $Ux=y$.
+
+Algoritmus:
+
+- Vstup: $n, A = a_{ij}^0, \mathbf{b} = a_{i,n+1}^0$
+  
+  přímý chod
+
+  &nbsp;&nbsp;&nbsp;pro $k =1, 2, ..., n-1$
+
+  &nbsp;&nbsp;&nbsp;$m_{ik}^{(k-1)} = -\frac{a_{ik}^{(k-1)}}{a_{kk}^{(k-1)}}$
+
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pro $i = k+1, k+2, …, n$ přičteme $m_{ik}$-násobek k-tého řádku i-tému řádku
+
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      
+
+  zpětný chod
+
 ## 4. LU rozklad
 
 ## 5

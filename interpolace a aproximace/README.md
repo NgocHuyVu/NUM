@@ -174,3 +174,46 @@ lines(t, NewtonPolValue(t, x, NewtonPolCoef(x, y)), col='orange')
 ## 3. Aproximace metodou nejmenších čtverců
 
 Najděme funkci $y=f(x)$ aby součet druhých mocnin odchylek mezi známými hodnotami $y_i$ a hodnotami funkce $f(x_i)$ byl co nejmenší. 
+
+# Původní data
+p <- c(0.1, 0.2, 0.28, 0.41, 0.98, 1.39, 1.93, 2.75, 3.01, 3.51)
+a <- c(0.089, 0.127, 0.144, 0.163, 0.189, 0.198, 0.206, 0.208, 0.209, 0.210)
+
+# Definice modelu
+model <- function(p, am, b) {
+  am / (1 + b * p)
+}
+
+# Vytvoření funkce pro nelineární regresi
+nll <- function(pars, p, a) {
+  am <- pars[1]
+  b <- pars[2]
+  sum((a - model(p, am, b))^2)
+}
+
+# Počáteční odhady pro am a b
+start_vals <- c(0.1, 0.1)
+
+# Optimalizace parametru pomocí nelineární regrese
+fit <- optim(start_vals, nll, p = p, a = a)
+
+# Odhadnuté hodnoty parametrů
+am_est <- fit$par[1]
+b_est <- fit$par[2]
+
+# Vykreslení původních dat, modelu a interpolačního polynomu
+plot(p, a, col = "red", pch = 16, xlab = "p [MPa]", ylab = "a")
+lines(p, model(p, am_est, b_est), col = "blue", lwd = 2)
+
+# Interpolace polynomem
+polynomial <- lm(a ~ poly(p, 2))
+lines(p, predict(polynomial), col = "green", lwd = 2)
+
+# Zobrazení průsečíku modelu a interpolačního polynomu
+intersection <- uniroot(function(x) model(x, am_est, b_est) - predict(polynomial, data.frame(p = x)), c(0, 4))$root
+abline(h = model(intersection, am_est, b_est), col = "purple", lty = 2)
+abline(v = intersection, col = "purple", lty = 2)
+
+# Výsledek
+intersection
+

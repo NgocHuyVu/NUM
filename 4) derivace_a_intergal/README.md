@@ -10,13 +10,89 @@
 
 **Derivace funkce ** je jiná funkce, která předpisuje směrnice pro obecný argument x.
 
-**Značení derivaci:** f', \, y'
+**Značení derivaci:** f', y'
 
 Derivace funkce  $f$ v bodě $x_0$ a označujeme ji $f'(x_0)$
 
+
+
 ### 2. Numerické derivování
 
-Snažíme nalézt hodnotu určítého integrálu, který je složitý a dokonce nemožným. Je dána spojitá funkce $f$ na intervalu $<a,b>$ a máme vypočítat určítého integrálu
+Vypočítáme přibližně hodnoty derivací $f'(x)$ a $f'' (x)$ v určitém bodě ze známých funkčních hodnot $f(x-h),f(x)$ a $f(x+h)$
+$h$ je kroková vzdálenost, která je malý rozdíl mezi hodnotami $x$.
+
+K funkci $f$ sestavíme interpolační polynom $p_n$ a ten pak derivujeme místo $f$. Používáme Newtonův tvar interpolačního polynomu.
+- Pomocí lineárního interpolačního polynomu (2 uzly)
+  $f'(x) \approx \frac{f(x+h) - f(x-h)}{h}$
+
+  ```
+  vypocet_prvni_derivace_linearniho_interpolacniho_polynomu <- function(f, x, h){
+  prvni_derivace <- (f(x + h) - f(x)) / h
+  return(prvni_derivace)
+  }
+
+  f <- function(x) {
+  return(sin(x))
+  }
+  x <- 1
+  h <- 0.01
+  prvni_derivace_linearni <- vypocet_prvni_derivace_linearniho_interpolacniho_polynomu(f, x, h)
+  cat("Přibližná hodnota první derivace (lineární interpolační polynom):", prvni_derivace_linearni, "\n")
+  ```
+- Pomocí kvadratického interpolačního polynomu (3 uzly)
+  $f'(x) \approx \frac{f(x+h) - f(x-h)}{2h}$
+  
+  $f''(x) \approx \frac{f(x+h) - 2f(x) + f(x-h)}{h^2}$
+  
+  ```
+  vypocet_prvni_derivace <- function(f, x, h){
+  prvni_derivace <- (f(x + h) - f(x - h)) / (2 * h)
+  return(prvni_derivace)
+  }
+
+  vypocet_druhe_derivace <- function(f, x, h){
+  druha_derivace <- (f(x + h) - 2 * f(x) + f(x - h)) / (h^2)
+  return(druha_derivace)
+  }
+
+  f <- function(x) {
+  return(sin(x))
+  }
+
+  x <- 1
+  h <- 0.01
+  prvni_derivace_kvadraticka <- vypocet_prvni_derivace(f, x, h)
+  druha_derivace <- vypocet_druhe_derivace(f, x, h)
+  cat("Přibližná hodnota první derivace (kvadratický interpolační polynom):", prvni_derivace_kvadraticka, "\n")
+  cat("Přibližná hodnota druhé derivace:", druha_derivace, "\n")
+  ```
+## Integrál
+
+### 1. Integrál
+
+Nechť $f$ je funkce definovaná pro $x∈(a,b)$. Pak funkci $F$, pro kterou platí $F'(x)=f(x)$ pro všechna $x∈(a,b)$, nazýváme primitivní funkcí k funkci $f$ na intervalu $(a,b)$.
+
+Množinu všech primitivních funkcí k funkci $f$ na intervalu $I$ nazýváme neurčitým integrálem funkce $f$ a značíme ji symbolem
+
+$\int f(x) \, \mathrm{d}x = F(x) + C$
+
+$f$ … integrand nebo integrovaná funkce
+
+$F(x)$ … primitivní funkce
+
+$ⅆx$ … diferenciál, který integruje vzhledem k proměnné $x$
+
+$C$ … integrační konstanta
+
+$x$ … integrační proměnná
+
+**Integrováním** podle proměnné x znamená hledání podle takové primitivní funkce, která je po zderivování podle proměnné x rovna původní integrované funkci
+
+![image](https://github.com/user-attachments/assets/41d69515-1a4c-4029-955d-f01a096b0865)
+
+### 2. Numerické integrace
+
+Snažíme nalézt hodnotu určítého integrálu, který je složitý a dokonce nemožným. Je dána spojitá funkce $f$ na intervalu $<a,b>$ a máme vypočítat určítého integrálu. Základní myšlenkou je rozdělit interval $[a,b]$ na menší podintervaly, a na těchto podintervalech aproximovat funkci pomocí polynomu.
 
 $$
 I = \int_a^b f(x) \, dx
@@ -25,6 +101,7 @@ $$
 Z geometrického pohledu představuje číslo I velikost plochy obrazce, který je vymezen grafem funkce. Numerické metody jsou navrhovány tak, že počítají velikost plochy přibližného obrazce pomocí několika funkčních hodnot. 
 
 K funkci $f$ sestavíme interpolační polynom k funkci $f$.
+
 
 ### 3. Otevřené Newtonovy-Cotesovy vzorce 
 
@@ -50,11 +127,12 @@ $I_{SL} = h \left[ \frac{1}{2} f(x_0) + f(x_1) + \cdots + f(x_{m-1}) + \frac{1}{
 
 Simpsonovo pravidlo aproximuje určitý integrál použitím kvadratické funkce, která prochází třemi body (dvě podintervaly), což vede k aproximaci pomocí polynomu druhého stupně. Tato parabola je použita k aproximaci plochy pod křivkou funkce, čímž poskytuje přesnější výsledek než obdélníkové nebo lichoběžníkové pravidlo.
 
-![image](https://github.com/user-attachments/assets/d475e539-6e31-452e-a07a-748ce43ab87b)
+![image](https://github.com/user-attachments/assets/9df3c242-1bc4-40f3-87ab-c35c640771b8)
 
 ### 7. Gaussův-Legendrův kvadraturní vzorec
 
+
 ### 8. Rombergova kvadratura 
 
-## Integrál
+
 

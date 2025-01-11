@@ -42,7 +42,7 @@ $I_{SO} = h \left[ f\left(\frac{x_0 + x_1}{2}\right) + f\left(\frac{x_1 + x_2}{2
 
 Jejím principem je aproximace plochy pod grafem funkce $f(x)$ lichoběžníkem a použitím jeho plochy jako přibližné hodnoty určitého funkce $f(x)$ na intervalu $<a,b>$.
 
-I_{SL} = h \left[ \frac{1}{2} f(x_0) + f(x_1) + \cdots + f(x_{m-1}) + \frac{1}{2} f(x_m) \right] = \frac{1}{2} h \left[ f(x_0) + 2 \sum_{i=1}^{m-1} f(x_i) + f(x_m) \right]
+$I_{SL} = h \left[ \frac{1}{2} f(x_0) + f(x_1) + \cdots + f(x_{m-1}) + \frac{1}{2} f(x_m) \right] = \frac{1}{2} h \left[ f(x_0) + 2 \sum_{i=1}^{m-1} f(x_i) + f(x_m) \right]$
 
 ![image](https://github.com/user-attachments/assets/74aca3f2-ba49-42d8-a7c3-19f04911600e)
 

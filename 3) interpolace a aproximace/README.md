@@ -5,7 +5,7 @@
 Častokrát máme co do činění s funkcemi, které jsme získali jako výsledky laboratorních měření a u kterých, proto máme k dispozici jen jejich hodnoty v diskrétních bodech, popřípadě s funkcemi, které jsou příliš složité a obtížné se s nimi pracuje. V takových případech je potřeba složitou funkci f jinou, jednodušší funkcí φ. 
 
 Lze rozlišovat na dvě úlohy
-- **Interpolace**: Hledáme funkci $\phi$, pro niž je $\phi(x_i) = f_i, i = 0, 1, \dots, n$ Interpolaèní funkce **musí** procházet zadanými body.
+- **Interpolace**: Hledáme funkci $\phi$, pro niž je $\phi(x_i) = f_i, i = 0, 1, \dots, n$ Interpolační funkce **musí** procházet zadanými body.
 - **Aproximace**: Hledáme funkci $\phi$, pro niž je $\phi(x_i) \approx f_i, i = 0, 1, \dots, n$, kde přibližná rovnost $\approx$ je určena tak, aby součet součet druhých mocnin odchylek mezi předepsanými hodnotami $f_i$ a předpokládávanými hodnotami $\phi(x_i)$ byl minimální. Aproximační funkce **nemusí** procházet zadanými body.
   
 ## 2. Interpolace

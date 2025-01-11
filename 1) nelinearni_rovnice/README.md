@@ -155,7 +155,7 @@ f <- function(x) {
 }
 print(regula_fasi(f, 1, 2, 1e-9))
 ```
-## **4. Newtonova metoda = Metoda sečen** 
+## **4. Newtonova metoda = Metoda tečen** 
 Je založena na použití tečny k aproximaci funkce. Výpočet iterativně využívá derivace funkce $f(x)$, která určuje sklon tečny v bodě aktuálního odhadu kořene. Nahradíme levou stranu rovnice $f(x) = 0$ Taylorovým polynomem 1. stupně. Obdržíme $f(x_0) + f'(x_0)(x - x_0) = 0$.
 
 Když odtud spočteme $x$ a přípojíme indexy, obdržíme Newtonovu iterační formuli

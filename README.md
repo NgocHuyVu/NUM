@@ -56,9 +56,9 @@ $y(a)=c$
 
 Přiblížení řešení numerické metody se nekonstruuje jako spojitá funkce, ale postupně se generuje posloupnost uzlů $x_0=a,x_1,x_2,…$ a pro ně se stanoví čísla $y_0=c,y_1,y_2,…$ , která aproximují hodnoty přesného řešení $y(x_0 ),y(x_1 ),y(x_2 ),….$ Pro jednoduchost budeme předpokládat, že uzly jsou ekvidistantní s krokem $h$ a platí $x_n=b$, tj. $h=(b-a)/n a x_i=a+ih, i=0,1,2,…$
 
-Eulerova metoda - metoda prvního řádu
+Máme 3 metody 
 
-Heunova metoda - metoda druhého řádu
-
-Rungeova-Kuttova metoda - metoda čtvrtého řádu
+- **Eulerova metoda**- metoda prvního řádu
+- **Heunova metoda**- metoda druhého řádu
+- **Rungeova-Kuttova metoda** - metoda čtvrtého řádu
 

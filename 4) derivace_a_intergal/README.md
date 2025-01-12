@@ -230,6 +230,52 @@ Algoritmus
 
 Metoda kombinuje lichoběžníkové pravidlo s Richardsonovým extrapolací. Začíná se výpočtem aproximace integrálu s různými děleními intervalu pomocí lichoběžníkové pravidla, a postupně se extrapolují chyby mezi výsledky, aby se dosáhlo vyšší přednosti. Extrapolace využívá vztah, který zahrnuje předchozí hodnoty a zlepšuje výsledek pomocí vztahu, který zahrnuje předchozí výsledky, a to podle na základě vzorce 
 
+$T_i^j = T_i^{j-1} + \frac{T_i^{j-1} - T_{i-1}^{j-1}}{4^j - 1}$
+
+Algoritmus
+- Vstup: $f(x), h, m$
+- Pro $i = 1, 2, ..., m$
+  
+  $T_i^0 = T(f, h / 2^i)$
+  
+  &nbsp;&nbsp;&nbsp; Pro $j =i, i+1, ..., m$
+  
+  &nbsp;&nbsp;&nbsp; $T_i^j = T_i^{j-1} + \frac{T_i^{j-1} - T_{i-1}^{j-1}}{4^j - 1}$
+  
+- Výstup: I \approx T_{m,m}
+
+```
+rombergova_kvadratura <- function(f, a, b, m) {
+  h <- b - a
+  T_matrix <- matrix(0, m, m)
+  
+  # Počáteční trapezoidní aproximace
+  T_matrix[1, 1] <- T(f, h, 1, a)
+  
+  for (i in 2:m) {
+    # Vypočítáme trapezoidní pravidlo pro každý nový interval
+    h <- h / 2
+    T_matrix[i, 1] <- T(f, h, 2^(i-1), a)
+    
+    # Vylepšujeme výpočty pomocí Rombergovy metody
+    for (j in 2:i) {
+      T_matrix[i, j] <- (4^(j-1) * T_matrix[i, j-1] - T_matrix[i-1, j-1]) / (4^(j-1) - 1)
+    }
+  }
+  
+  # Vráti nejlepších aproximaci
+  return(T_matrix[m, m])
+}
+
+# Definujeme funkci, kterou budeme integrovat
+f <- function(x) {
+  return(log(x + 1) / (x^2 + 1))
+}
+
+# Spustíme Rombergovu kvadraturu na intervalu [0, 1] pro daný integrál
+result <- rombergova_kvadratura(f, 0, 1, 6)
+print(result)
+```
 ### 8. Gaussův-Legendrův kvadraturní vzorec
 
 

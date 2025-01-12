@@ -210,12 +210,27 @@ cat("Přibližná hodnota integrálu pomocí složeného lichoběžníkového pr
 ### 6. Newtonovy-Cotesovy vzorce - Simpsonovo pravidlo
 
 Simpsonovo pravidlo aproximuje určitý integrál použitím kvadratické funkce, která prochází třemi body (dvě podintervaly), což vede k aproximaci pomocí polynomu druhého stupně. Tato parabola je použita k aproximaci plochy pod křivkou funkce, čímž poskytuje přesnější výsledek než obdélníkové nebo lichoběžníkové pravidlo.
-
+$
+I_{SS} = \frac{h}{3} \left[ f(x_0) + 4f(x_1) + 2f(x_2) + 4f(x_3) + 2f(x_4) + \dots + f(x_{2m}) \right] 
+= \frac{h}{3} \left[ f(x_0) + 4 \sum_{i=1}^m f(x_{2i-1}) + 2 \sum_{i=1}^{m-1} f(x_{2i}) + f(x_{2m}) \right]
+$
 ![image](https://github.com/user-attachments/assets/9df3c242-1bc4-40f3-87ab-c35c640771b8)
 
-### 7. Gaussův-Legendrův kvadraturní vzorec
+Algoritmus
+- Vstup $a, b, f(x), n$
+- $h = \frac{b-a}{n}$
+- pro $j=0, 1, ..., n$
+  
+  $x_j \coloneqq a + jh$
 
-### 8. Rombergova kvadratura 
+- $S(f, h) = \frac{h}{3} \sum_{j=0}^{n/2 - 1} \left( f(x_{2j}) + 4f(x_{2j+1}) + f(x_{2j+2}) \right)$ 
+- Výstup: $S(f,h)$
+
+### 7. Rombergova kvadratura 
+
+Metoda kombinuje lichoběžníkové pravidlo s Richardsonovým extrapolací. Začíná se výpočtem aproximace integrálu s různými děleními intervalu pomocí lichoběžníkové pravidla, a postupně se extrapolují chyby mezi výsledky, aby se dosáhlo vyšší přednosti. Extrapolace využívá vztah, který zahrnuje předchozí hodnoty a zlepšuje výsledek pomocí vztahu, který zahrnuje předchozí výsledky, a to podle na základě vzorce 
+
+### 8. Gaussův-Legendrův kvadraturní vzorec
 
 
 

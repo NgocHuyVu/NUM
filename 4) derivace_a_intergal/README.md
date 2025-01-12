@@ -115,6 +115,51 @@ Jejím principem je, že integrál (plocha pod grafem funkce $f(x)$ ) aproximuje
 
 $I_{SO} = h \left[ f\left(\frac{x_0 + x_1}{2}\right) + f\left(\frac{x_1 + x_2}{2}\right) + \cdots + f\left(\frac{x_{m-1} + x_m}{2}\right) \right] = h \sum_{i=1}^m f\left(\frac{x_{i-1} + x_i}{2}\right)$
 
+Algoritmus
+- Vstup: $a, b, f(x), n$
+- $h = \frac{b-a}{n}$
+- pro $j=0, 1, ..., n$
+  
+  $x_j \coloneqq a + jh$
+- $R(f, h) = h \sum_{j=0}^{n-1} f(x_j + \frac{h}{2})$
+- Výstup: $R(f,h)$
+  
+```
+# Definice funkce f(x)
+f <- function(x) {
+  exp(x)
+}
+
+# Meze integrace
+a <- -1
+b <- 1
+
+# Počet podintervalů
+m <- 4
+slozene_obdelnikove_pravidlo <- function(f, a, b, m) {
+  # Výpočet šířky podintervalů
+  h <- (b - a) / m
+  
+  sum_result <- 0
+  
+  # Smyčka přes všechny podintervaly
+  for (i in 1:m) {
+    # Počítání středů každého podintervalu
+    x_left <- a + (i - 1) * h
+    x_right <- a + i * h
+    sum_result <- sum_result + f((x_left + x_right) / 2)
+  }
+  
+  # Výsledek podle složeného obdélníkového pravidla
+  I_so <- h * sum_result
+  
+  # Návrat výsledku
+  return(I_so)
+}
+result_slozene_obdelnikove_pravidlo <- slozene_obdelnikove_pravidlo(f, a, b, m)
+cat("Přibližná hodnota integrálu pomocí složeného obdélníkového pravidla je:", result_slozene_obdelnikove_pravidlo, "\n")
+```
+
 ### 5. Newtonovy-Cotesovy vzorce - Lichoběžníkové pravidlo
 
 Jejím principem je aproximace plochy pod grafem funkce $f(x)$ lichoběžníkem a použitím jeho plochy jako přibližné hodnoty určitého funkce $f(x)$ na intervalu $<a,b>$.
@@ -123,6 +168,45 @@ $I_{SL} = h \left[ \frac{1}{2} f(x_0) + f(x_1) + \cdots + f(x_{m-1}) + \frac{1}{
 
 ![image](https://github.com/user-attachments/assets/74aca3f2-ba49-42d8-a7c3-19f04911600e)
 
+Algoritmus
+- Vstup: $a, b, f(x), n$
+- $h = \frac{b-a}{n}$
+- pro $j=0, 1, ..., n$
+  
+  $x_j \coloneqq a + jh$
+- $T(f, h) = \frac{h}{2} \sum_{j=0}^{n-1} \left(f(x_j) + f(x_{j+1})\right)$
+- Výstup: $R(f,h)$
+
+```
+# Definice funkce f(x)
+f <- function(x) {
+  exp(x)
+}
+
+# Meze integrace
+a <- -1
+b <- 1
+
+# Počet podintervalů
+m <- 4
+slozene_lichobeznikove_pravidlo <- function(f, a, b, m) {
+  h <- (b - a) / m
+  
+  sum_result <- 0
+  
+  for (i in 1:(m-1)) {
+    x_i <- a + i * h
+    sum_result <- sum_result + f(x_i)
+  }
+  
+  I_sl <- (h / 2) * (f(a) + 2 * sum_result + f(b))
+  
+  return(I_sl)
+}
+
+result_slozene_lichobeznikove_pravidlo <- slozene_lichobeznikove_pravidlo(f, a, b, m)
+cat("Přibližná hodnota integrálu pomocí složeného lichoběžníkového pravidla je:", result_slozene_lichobeznikove_pravidlo, "\n")
+```
 ### 6. Newtonovy-Cotesovy vzorce - Simpsonovo pravidlo
 
 Simpsonovo pravidlo aproximuje určitý integrál použitím kvadratické funkce, která prochází třemi body (dvě podintervaly), což vede k aproximaci pomocí polynomu druhého stupně. Tato parabola je použita k aproximaci plochy pod křivkou funkce, čímž poskytuje přesnější výsledek než obdélníkové nebo lichoběžníkové pravidlo.
@@ -130,7 +214,6 @@ Simpsonovo pravidlo aproximuje určitý integrál použitím kvadratické funkce
 ![image](https://github.com/user-attachments/assets/9df3c242-1bc4-40f3-87ab-c35c640771b8)
 
 ### 7. Gaussův-Legendrův kvadraturní vzorec
-
 
 ### 8. Rombergova kvadratura 
 

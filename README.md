@@ -43,3 +43,22 @@ $$
 Z geometrického pohledu představuje číslo I velikost plochy obrazce, který je vymezen grafem funkce. Numerické metody jsou navrhovány tak, že počítají velikost plochy přibližného obrazce pomocí několika funkčních hodnot. 
 
 K funkci $f$ sestavíme interpolační polynom k funkci $f$.
+
+## 5. Obyčejné diferenciální rovnice
+
+Budeme se zabývat numerickým výpočtem funkce $y=y(x)$, která na intervalu $<a,b>$ vyhovuje obyčejnou diferenciální rovnici prvního řádu
+
+$y' (x)=f(x,y(x))$
+
+Řešení je určeno až na jeden volitelný parametr. Řešení budeme požadovat splnění počáteční podmínky ve tvaru
+
+$y(a)=c$
+
+Přiblížení řešení numerické metody se nekonstruuje jako spojitá funkce, ale postupně se generuje posloupnost uzlů $x_0=a,x_1,x_2,…$ a pro ně se stanoví čísla $y_0=c,y_1,y_2,…$ , která aproximují hodnoty přesného řešení $y(x_0 ),y(x_1 ),y(x_2 ),….$ Pro jednoduchost budeme předpokládat, že uzly jsou ekvidistantní s krokem $h$ a platí $x_n=b$, tj. $h=(b-a)/n a x_i=a+ih, i=0,1,2,…$
+
+Eulerova metoda - metoda prvního řádu
+
+Heunova metoda - metoda druhého řádu
+
+Rungeova-Kuttova metoda - metoda čtvrtého řádu
+

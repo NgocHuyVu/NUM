@@ -8,7 +8,7 @@
 
 **Nelineární rovnice** je rovnice, která obsahuje složitější vztahy mezi proměnnými jako jsou kvadratické, exponenciální, logaritmické, ... 
 
-  Př. $y = $x^2 +x+5
+  Př. $y=x^2 +x+5$
 
 ## **2. Numerické řešení nelineárních rovnic**
 Zabývá se výpočtem reálných kořenů nelineární rovnice $f(x)=0$

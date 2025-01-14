@@ -21,8 +21,10 @@ Derivace funkce  $f$ v bodě $x_0$ a označujeme ji $f'(x_0)$
 Vypočítáme přibližně hodnoty derivací $f'(x)$ a $f'' (x)$ v určitém bodě ze známých funkčních hodnot $f(x-h),f(x)$ a $f(x+h)$
 $h$ je kroková vzdálenost, která je malý rozdíl mezi hodnotami $x$.
 
-K funkci $f$ sestavíme interpolační polynom $p_n$ a ten pak derivujeme místo $f$. Používáme Newtonův tvar interpolačního polynomu.
+Geoemtricky derivace vyjadřuje směrnici tečny ke grafu funkce v bodě. Při numerické derivaci je tečna nahrazena sečnou vedenou zanámými body na grafu funkce. K funkci $f$ sestavíme interpolační polynom $p_n$ a ten pak derivujeme místo $f$. Používáme Newtonův tvar interpolačního polynomu. 
+
 - Pomocí lineárního interpolačního polynomu (2 uzly)
+  
   $f'(x) \approx \frac{f(x+h) - f(x-h)}{h}$
 
   ```
@@ -40,6 +42,7 @@ K funkci $f$ sestavíme interpolační polynom $p_n$ a ten pak derivujeme místo
   cat("Přibližná hodnota první derivace (lineární interpolační polynom):", prvni_derivace_linearni, "\n")
   ```
 - Pomocí kvadratického interpolačního polynomu (3 uzly)
+  
   $f'(x) \approx \frac{f(x+h) - f(x-h)}{2h}$
   
   $f''(x) \approx \frac{f(x+h) - 2f(x) + f(x-h)}{h^2}$

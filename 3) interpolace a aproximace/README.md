@@ -52,11 +52,53 @@ Algoritmus
 - Výstup: $L(x)$
 
 ```
-1
-12
-(−5x
-3 + 12x
-2 + 5x + 12).
+Lagrange <- function(t, x, y, print_polynom = FALSE) {
+  n <- length(x)
+  soucet_Lx <- 0
+  polynom <- ""
+  
+  for (i in 1:n) {
+    soucin_li_x <- 1
+    li <- ""
+    for (j in 1:n) {
+      if (j != i) {
+        soucin_li_x <- soucin_li_x * (t - x[j]) / (x[i] - x[j])
+        li <- paste0(li, "(x - ", x[j], ")/(", x[i], " - ", x[j], ")")
+        if (j != n && j != i) {
+          li <- paste0(li, " * ")
+        }
+      }
+    }
+    polynom <- paste0(polynom, ifelse(i == 1, "", " + "), y[i], " * (", li, ")")
+    soucet_Lx <- soucet_Lx + y[i] * soucin_li_x
+  }
+  
+  # Výpis polynomu, pouze pokud je print_polynom TRUE
+  if (print_polynom) {
+    cat("Předpis polynomu L(x):\n")
+    cat(polynom, "\n")
+  }
+  
+  return(soucet_Lx) # Vrátí interpolovanou hodnotu v bodě t
+}
+
+# Zadané hodnoty z tabulky
+x <- c(-1, 0, 1, 3)
+y <- c(2, 1, 2, 0)
+
+# Bod, pro který chceme vypočítat přibližnou hodnotu y
+t <- 1
+
+# Vypočítání interpolované hodnoty v bodě t
+P_t <- Lagrange(t, x, y, print_polynom = TRUE)
+cat("Hodnota polynomu v bodě t =", t, "je:", P_t, "\n")
+
+# Vizualizace
+plot(x, y, col = 'red', ylim = c(-10, 10), pch = 19, xlab = "x", ylab = "y", main = "Lagrange Interpolation")
+t_seq <- seq(min(x), max(x), by = 0.01) # Hodnoty t pro vykreslení funkce
+y_seq <- sapply(t_seq, Lagrange, x = x, y = y, print_polynom = FALSE) # Výpočet y pro všechny hodnoty t (bez výpisu polynomu)
+lines(t_seq, y_seq, col = 'blue') # Vykreslení interpolační funkce
+
 ```
 
 ### c. Newtonův interpolační polynom

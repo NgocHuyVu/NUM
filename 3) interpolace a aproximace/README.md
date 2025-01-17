@@ -52,39 +52,11 @@ Algoritmus
 - Výstup: $L(x)$
 
 ```
-Lagrange<-function(t,x,y){
-  n<-length(x)
-  soucet_Lx <-0
-  for(i in 1:n){
-    soucin_li_x<-1
-    for(j in 1:n){
-      if(j!=i){ 
-        soucin_li_x<-soucin_li_x*(t-x[j])/(x[i]-x[j])
-      }
-    }
-    soucet_Lx<-soucet_Lx+y[i]*soucin_li_x
-  }
-  # Vrátí interpolovanou hodnotu v bodě t
-  return(soucet_Lx)
-}
-
-# Zadané hodnoty z tabulky
-x <- c(0, 1.5, 2)
-y <- c(0.000, 0.682, 0.841)
-
-#Bod, pro který chceme vypočítat přibližnou hodnotu y
-t <- 1
-
-P_t <- Lagrange(t, x, y)
-print(P_t)
-
-# Vizualizace
-# červené body = počáteční hodnoty
-# modrá čára znázorňuje interpolovanou funkci, spojuje všechny body, 
-# které jsou výsledkem aplikace Lagrageova polynomu na růžné hodnoty t
-plot(x, y, col='red', ylim=c(-1,1))
-# t <- seq(0,2*pi, by=0.001)
-lines(t, Lagrange(t, x, y), col='blue')
+1
+12
+(−5x
+3 + 12x
+2 + 5x + 12).
 ```
 
 ### c. Newtonův interpolační polynom

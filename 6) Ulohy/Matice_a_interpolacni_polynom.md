@@ -20,7 +20,7 @@ kde $i$ a $j$ jsou celá čísla od $1$ do $n$.
 
     (b) Určete
 
-    $/int_{x_{\text{MIN}}}^{x_{\text{MAX}}} p(x) dx$
+    $\int_{x_{\text{MIN}}}^{x_{\text{MAX}}} p(x) dx$
 
     kde $x_{\text{MIN}}$ je nejmenší prvek vektoru $\vec{x}$ a $x_{\text{MAX}}$ je jeho největší prvek.
 

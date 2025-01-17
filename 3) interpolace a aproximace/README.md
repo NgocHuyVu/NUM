@@ -141,6 +141,7 @@ Algoritmus:
 # na základě dvou vektorů x a y, které obsahují hodnoty x a y daných bodů.
 # suma = N(xi) suma všech členů polynomu již vypočtených v předchozích iteracích
 # nasobic = (xi-xj) násobí postupně  všechny rozdíly,které odpovídájí jedbnotlivým kořenům v členech polynomu
+# Funkce pro výpočet koeficientů Newtonova interpolovaného polynomu
 NewtonPolCoef <- function(x, y){
   n <- length(x)
   coef <- numeric(n)
@@ -150,22 +151,37 @@ NewtonPolCoef <- function(x, y){
       suma <- 0
       nasobic <- 1
       for(j in 1:(i-1)){
-        suma <- suma + coef[j]*nasobic
-        nasobic <- nasobic*(x[i]-x[j])
+        suma <- suma + coef[j] * nasobic
+        nasobic <- nasobic * (x[i] - x[j])
       }
-      coef[i] <- (y[i]-suma)/nasobic
+      coef[i] <- (y[i] - suma) / nasobic
     }
   }
   return(coef)
 }
-# Vypočítá hodnotu Newtonova interpolovaného polynomu v bodě t
+
+# Funkce pro výpočet hodnoty Newtonova interpolovaného polynomu v bodě t
 NewtonPolValue <- function(t, x, coef){
   n <- length(coef)
   res <- coef[n]
-  for(i in (n-1):1) res <- res*(t-x[i])+coef[i]
+  for(i in (n-1):1) res <- res * (t - x[i]) + coef[i]
   return(res)
 }
 
+# Funkce pro generování předpisu Newtonova interpolovaného polynomu ve formátu N(x)
+NewtonPolynomFormula <- function(x, coef){
+  n <- length(x)
+  formula <- as.character(coef[1])
+  
+  for(i in 2:n){
+    # Vytvoření faktorů pro každý člen (x - x[j])
+    factors <- paste("(x -", x[1:(i-1)], ")", collapse = "")
+    
+    formula <- paste(formula, " +", coef[i], factors)
+  }
+  
+  return(formula)
+}
 
 # Zadané hodnoty z tabulky
 x <- c(-1, 0, 1, 3)
@@ -173,17 +189,28 @@ y <- c(2, 1, 2, 0)
 
 # Výpočet koeficientů Newtonova polynomu
 coef <- NewtonPolCoef(x, y)
-print("Koeficienty Newtonova polynomu:")
+
+# Výpis koeficientů Newtonova polynomu
+cat("Koeficienty Newtonova polynomu:\n")
 print(coef)
 
-# Výpočet hodnoty interpolovaného polynomu v bodě α = 2
-#alpha <- 2
-P_alpha <- NewtonPolValue(alpha, x, coef)
-print(paste("Hodnota interpolovaného polynomu v bodě α =", alpha, "je:", P_alpha))
+# Vytisknutí předpisu Newtonova polynomu ve správném formátu
+cat("\nPředpis Newtonova interpolačního polynomu:\n")
+cat("N(x) =", NewtonPolynomFormula(x, coef), "\n")
 
-plot(x, y, col='red', ylim=c(-1,1))
-alpha <- seq(0,2*pi, by=0.001)
-lines(t, NewtonPolValue(t, x, NewtonPolCoef(x, y)), col='orange')
+# Výpočet hodnoty interpolovaného polynomu v bodě alpha = 2
+alpha <- 2
+P_alpha <- NewtonPolValue(alpha, x, coef)
+cat("\nHodnota interpolovaného polynomu v bodě α =", alpha, "je:", P_alpha, "\n")
+
+# Vykreslení
+plot(x, y, col = 'red', ylim = c(-1, 3), pch = 16, xlab = "x", ylab = "y", main = "Newtonův interpolační polynom")
+t <- seq(min(x) - 1, max(x) + 1, by = 0.001)  # Interval pro hodnoty t pro vykreslení polynomu
+lines(t, sapply(t, function(ti) NewtonPolValue(ti, x, coef)), col = 'orange', lwd = 2)
+
+# Přidání legendy
+legend("topright", legend = c("Body (x, y)", "Newtonův polynom"), col = c("red", "orange"), pch = c(16, NA), lty = c(NA, 1))
+
 ```
 ## 3. Aproximace metodou nejmenších čtverců
 

@@ -87,8 +87,8 @@ x <- c(-1, 0, 1, 3)
 y <- c(2, 1, 2, 0)
 
 # Bod, pro který chceme vypočítat přibližnou hodnotu y
-t <- 1
-
+#t <- 1
+t <- NULL
 # Vypočítání interpolované hodnoty v bodě t
 P_t <- Lagrange(t, x, y, print_polynom = TRUE)
 cat("Hodnota polynomu v bodě t =", t, "je:", P_t, "\n")
@@ -200,6 +200,7 @@ cat("N(x) =", NewtonPolynomFormula(x, coef), "\n")
 
 # Výpočet hodnoty interpolovaného polynomu v bodě alpha = 2
 alpha <- 2
+# alpha <- NULL
 P_alpha <- NewtonPolValue(alpha, x, coef)
 cat("\nHodnota interpolovaného polynomu v bodě α =", alpha, "je:", P_alpha, "\n")
 

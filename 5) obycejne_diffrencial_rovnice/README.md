@@ -57,6 +57,7 @@ $y_0=c$
 
 $y_{i+1}=y_i+hf(x_i, y_i), i=0, 1, ..., n-1$
 
+Př. $x_0=-2, y(-2)=y_0=-1$ a $f(x,y)=x^2-0.2y, h=0.5$
 ```
 # Eulerova metoda
 eulerova_metoda <- function(f, x0, y0, h, x_end) {

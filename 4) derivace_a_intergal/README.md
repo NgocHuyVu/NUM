@@ -115,7 +115,7 @@ $$
 Příklad: Vypočtětě přbližnou hodnotu integrálu 
 
 $$
-I = \int_-1^1 e^x \ dx
+I = \int_1^1  e^x \ dx
 $$
 ### 4. Newtonovy-Cotesovy vzorce - Obdélníkové pravidlo
 

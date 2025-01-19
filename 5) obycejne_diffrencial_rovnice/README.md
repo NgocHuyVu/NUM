@@ -59,7 +59,7 @@ $y_{i+1}=y_i+hf(x_i, y_i), i=0, 1, ..., n-1$
 
 Př. Řešte na intervalu <-2,3> metody s krokem h =0.5
 
-$y'=x^-0.2y, y(-2)=-1$ má jediné řešení
+$y'=x^2 -0.2y, y(-2)=-1$ má jediné řešení
 
 $x_0=-2, y(-2)=y_0=-1$ a $f(x,y)=x^2-0.2y, h=0.5$
 ```

@@ -98,7 +98,7 @@ $x$ … integrační proměnná
 Snažíme nalézt hodnotu určítého integrálu, který je složitý a dokonce nemožným. Je dána spojitá funkce $f$ na intervalu $<a,b>$ a máme vypočítat určítého integrálu. Základní myšlenkou je rozdělit interval $[a,b]$ na menší podintervaly, a na těchto podintervalech aproximovat funkci pomocí polynomu.
 
 $$
-I = \int_a^b f(x) \, dx
+I = \int_a^b f(x) dx
 $$
 
 Z geometrického pohledu představuje číslo I velikost plochy obrazce, který je vymezen grafem funkce. Numerické metody jsou navrhovány tak, že počítají velikost plochy přibližného obrazce pomocí několika funkčních hodnot. 
@@ -112,6 +112,11 @@ $$
 \int_a^b f(x) \, dx \approx \sum_{i=0}^n w_i f(x_i)
 $$
 
+Příklad: Vypočtětě přbližnou hodnotu integrálu 
+
+$$
+I = \int_-1^1 e^x \ dx
+$$
 ### 4. Newtonovy-Cotesovy vzorce - Obdélníkové pravidlo
 
 Jejím principem je, že integrál (plocha pod grafem funkce $f(x)$ ) aproximuje na intervalu  $<a,b>$ součtem obdélníků, kde každý obdelník má šírku danou intervalem, na kterém integrujeme, a výšku danou hodnotou funkce na jednom bodě (obvykle na levém nebo pravém okraji intervalu = střední bod intervalu).

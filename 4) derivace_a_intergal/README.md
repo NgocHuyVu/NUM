@@ -229,6 +229,47 @@ Algoritmus
 - $S(f, h) = \frac{h}{3} \sum_{j=0}^{n/2 - 1} \left( f(x_{2j}) + 4f(x_{2j+1}) + f(x_{2j+2}) \right)$ 
 - Výstup: $S(f,h)$
 
+```
+slozene_simpsonnovo_pravidlo <- function(f, a, b, m) {
+  h <- (b - a) / (2 * m)
+  
+  # Iniciace součtu pro Simpsonovo pravidlo
+  sum_odd <- 0  # Součet pro indexy 2i-1
+  sum_even <- 0  # Součet pro indexy 2i
+  
+  # Smyčky pro výpočet součtu
+  for (i in 1:m) {
+    x_odd <- a + (2 * i - 1) * h
+    sum_odd <- sum_odd + f(x_odd)  # Součet pro 2i-1
+  }
+  
+  for (i in 1:(m-1)) {
+    x_even <- a + 2 * i * h
+    sum_even <- sum_even + f(x_even)  # Součet pro 2i
+  }
+  
+  # Výsledek podle složeného Simpsonova pravidla
+  I_ss <- (h / 3) * (f(a) + 4 * sum_odd + 2 * sum_even + f(b))
+  
+  # Návrat výsledku
+  return(I_ss)
+}
+result_slozene_simpsonnovo_pravidlo <- slozene_simpsonnovo_pravidlo(f, a, b, m)
+cat("Přibližná hodnota integrálu pomocí složeného Simpsonova pravidla je:", result_slozene_simpsonnovo_pravidlo, "\n")
+
+
+# Definice funkce f(x)
+f <- function(x) {
+  exp(x)
+}
+
+# Meze integrace
+a <- -1
+b <- 1
+
+# Počet podintervalů
+m <- 4
+```
 ### 7. Rombergova kvadratura 
 
 Metoda kombinuje lichoběžníkové pravidlo s Richardsonovým extrapolací. Začíná se výpočtem aproximace integrálu s různými děleními intervalu pomocí lichoběžníkové pravidla, a postupně se extrapolují chyby mezi výsledky, aby se dosáhlo vyšší přednosti. Extrapolace využívá vztah, který zahrnuje předchozí hodnoty a zlepšuje výsledek pomocí vztahu, který zahrnuje předchozí výsledky, a to podle na základě vzorce 

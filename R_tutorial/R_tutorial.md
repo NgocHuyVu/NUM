@@ -44,11 +44,12 @@ min(5, 10, 15)
 - $>=$
 - $<=$
 - $|$
-- $&$
+- &
 
 # If-Else
 
 ## if 
+
 ```
 a <- 33
 b <- 200
@@ -193,4 +194,151 @@ my_function("Peter")
 my_function("Lois")
 my_function("Stewie")
 ```
- 
+
+# Vektory
+
+Vektor je seznam položek, které jsou stejného typu.
+
+Používáme funkci c() a odděleme položky čárkou
+
+```
+# Vector of strings
+fruits <- c("banana", "apple", "orange")
+
+# Print fruits
+fruits
+```
+
+# List
+
+List může obsahovat mnoho různých datových typů
+# Matice
+
+Matici lze vytvořit pomocí funkce matrix(). Chcete-li získat počet řádků a sloupců, zadejte parametry nrow a ncol
+
+```
+A <- matrix(c(1,2,3,4,5,6), nrow = 3, ncol = 2)
+```
+
+# Vizualizace
+
+## Plot
+
+Funkce plot() se používá ke kreslení bodů v diagramu.
+
+Přebírá parametry pro specifikaci bodů v diagram:
+- První parametr určuje body na ose x.
+- Drudý parametr určuje body na ose y.
+
+### Dvě čísla
+
+```
+plot(1,3)
+```
+
+### Vektory pro více bodů
+```
+plot(c(1, 8), c(3, 10))
+```
+
+### Pokud máme hodně bodů, tak můžeme použit proměnné
+```
+x <- c(1, 2, 3, 4, 5)
+y <- c(3, 7, 8, 9, 12)
+
+plot(x, y)
+```
+
+### Nakreslení čáry spojující všechny body v diagramu: type="l"
+```
+plot(1:10, type="l")
+```
+
+### Název grafu (main), název osy x (xlab), název osy y (ylab)
+
+```
+plot(1:10, main="My Graph", xlab="The x-axis", ylab="The y axis")
+```
+
+### Barva bodů (col)
+
+```
+plot(1:10, col="red")
+```
+
+### Velikosti bodů (cex) 
+
+1 = default
+
+0.5 = 50% menší
+
+2 = 100% větší
+```
+plot(1:10, cex=2)
+```
+
+### Tvar bodů (pch)
+
+Hodnota jsou od 0 do 25
+
+```
+plot(1:10, pch=25, cex=2)
+```
+
+## Line
+
+### Barva čárky (col)
+
+```
+plot(1:10, type="l", col="blue")
+```
+
+### Šířka (lwd)
+
+```
+plot(1:10, type="l", lwd=2)
+```
+
+### Styl (lty)
+- 0 odstraní čáru
+- 1 zobrazuje plnou čáru
+- 2 zobrazuje přerušovanou čáru
+- 3 zobrazuje tečkovanou čáru
+- 4 zobrazuje "tečkovanou" čáru
+- 5 zobrazuje "dlouhou přerušovanou" čáru
+- 6 zobrazuje "dvě čárkovanou" čáru
+
+```
+plot(1:10, type="l", lwd=5, lty=3)
+```
+
+### Více čárků
+
+Pokud chceme v grafu zobrazit více než jeden řádek, tak používáme funkci plot() spolu s funkcí lines()
+
+```
+line1 <- c(1,2,3,4,5,10)
+line2 <- c(2,5,7,8,9,10)
+
+plot(line1, type = "l", col = "blue")
+lines(line2, type="l", col = "red")
+```
+
+## Scatter plot
+
+Rozptylový graf je typ grafu používaný k zobrazení vztahu mezi dvěma numerickými proměnnými a vykresluje jednu tečku pro každé pozorování.
+
+Potřebume dva vektory stejné délky, jeden pro osu x (horizontální) a jeden pro osu y (vertikální)
+
+```
+x <- c(5,7,8,7,2,2,9,4,11,12,9,6)
+y <- c(99,86,87,88,111,103,87,94,78,77,85,86)
+
+plot(x, y, main="Observation of Cars", xlab="Car age", ylab="Car speed")
+```
+
+## Max a Min
+
+Funkce min() a max() lze použít k nalezení nejnižší nebo nejvyšší hodnoty v sadě
+
+

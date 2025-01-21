@@ -45,6 +45,7 @@ Algoritmus:
 
 Výstup: poslední hodnota $x^k+1$
 
+Př. Řešte nelineární rovnici $x \arctan(x) = 1$ s přeností $10^{-2}$
 ```
 # Metoda bisekce
 bisekce <- function(a, b, epsilon) {
@@ -86,11 +87,6 @@ cat("Kořen: ", kořen, "\n")
 a <- 1
 b <- 2
 epsilon <- 10^(-2)
-
-# Volání metody bisekce
-root <- bisection_method(f, a, b, epsilon)
-cat("Kořen přibližně:", root, "\n")
-
 ```
 
 ## **3. Metoda regula fasi**
@@ -339,6 +335,7 @@ $c_2=b_3=2, c_1=c_2.3+b_2=6, c_0=c_1.3+b_1=20$
 
 $P'(3)=20$
 
+Př. Nalezněte kořenů polynomu $P(x)=x^5 - 8x^4 - 72x^3 + 382^2 +727x +2310$
 ```
 NewtonHorner <- function(a, xstart, acc=0.0000001){
   n <- length(a)

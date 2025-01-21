@@ -339,6 +339,20 @@ plot(x, y, main="Observation of Cars", xlab="Car age", ylab="Car speed")
 
 ## Max a Min
 
-Funkce min() a max() lze použít k nalezení nejnižší nebo nejvyšší hodnoty v sadě
+Funkce **min()** a **max()** lze použít k nalezení nejnižší nebo nejvyšší hodnoty v sadě.
 
+```
+Data_Cars <- mtcars
 
+max(Data_Cars$hp)
+min(Data_Cars$hp)
+```
+
+Můžeme použít funkce **which.max()** a **which.min()** k nalezení pozice indexu maximální a minimální hodnoty.
+
+```
+Data_Cars <- mtcars
+
+which.max(Data_Cars$hp)
+which.min(Data_Cars$hp)
+```

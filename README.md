@@ -19,11 +19,11 @@ Máme 2 typy
 
 ## 3. Interpolace a aproximace
 
-Neznáme předem předpis funkce, máme pouze zadané funkční hodnoty v $n+1$ uzlových bodech (x_i, y_i). Snažíme hledat jednoudušší funkcim aby můžeme najít přbližnou hodnotu $y$ v bodech mezi hodnotami $x$, tkeré nejsou předem známy.
+Neznáme předem předpis funkce, máme pouze zadané funkční hodnoty v $n+1$ uzlových bodech (x_i, y_i). Snažíme hledat jednoudušší funkci, aby můžeme najít přbližnou hodnotu $y$ v bodech mezi hodnotami $x$, které nejsou předem známy.
 
 Lze rozlišovat na dvě úlohy
 - **Interpolace**: Hledáme funkci $\phi$, pro niž je $\phi(x_i) = f_i, i = 0, 1, \dots, n$ Interpolační funkce **musí** procházet zadanými body.
-- **Aproximace**: Hledáme funkci $\phi$, pro niž je $\phi(x_i) \approx f_i, i = 0, 1, \dots, n$, kde přibližná rovnost $\approx$ je určena tak, aby součet součet druhých mocnin odchylek mezi předepsanými hodnotami $f_i$ a předpokládávanými hodnotami $\phi(x_i)$ byl minimální. Aproximační funkce **nemusí** procházet zadanými body.
+- **Aproximace**: Hledáme funkci $\phi$, pro niž je $\phi(x_i) \approx f_i, i = 0, 1, \dots, n$, kde přibližná rovnost $\approx$ je určena tak, aby součet součet druhých mocnin odchylek mezi předepsanými hodnotami $f_i$ a předpokládánými hodnotami $\phi(x_i)$ byl minimální. Aproximační funkce **nemusí** procházet zadanými body.
 
 ## 4. Derivace a integrál
 

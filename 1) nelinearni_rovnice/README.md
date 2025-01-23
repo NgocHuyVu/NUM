@@ -201,7 +201,7 @@ print(result)
 
 Je variace Newtonovy metody pro funkce $f$, které nejsou diferencovatelné, tedy pro které nemáme možnost počítat derivaci. Derivaci v ní nahradíme poměrnou diferencí.
 
-Sestrojíme sečnu grafu funkce f procházející body (x_(k-1),f(x_(k-1) ))  a (x_k,f(x_k )). Tato přímka je dána rovnicí $y= \frac{f(b_0) - f(a_0)}{b_0 - a_0}(x - b_0) + f(b_0)$
+Sestrojíme sečnu grafu funkce f procházející body $(x_(k-1),f(x_(k-1) ))$  a $(x_k,f(x_k ))$. Tato přímka je dána rovnicí $y= \frac{f(b_0) - f(a_0)}{b_0 - a_0}(x - b_0) + f(b_0)$
 
 Průsečíkem této přímky s osou x je bod $(c, 0)$, kde $c = b_0 - \frac{(b_0 - a_0)}{f(b_0) - f(a_0)} \cdot f(b_0)$.
 

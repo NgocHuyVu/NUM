@@ -51,6 +51,44 @@ Algoritmus
    &nbsp;&nbsp;&nbsp; $L(x) = \sum_{i=0}^{n} l_i(x) f_i$
 - Výstup: $L(x)$
 
+Zkonstruje a zobrazí interpolační polynom 
+```
+Lagrange <- function(x, y, print_polynom = FALSE) {
+  n <- length(x)
+  polynom <- ""
+  
+  for (i in 1:n) {
+    li <- ""
+    for (j in 1:n) {
+      if (j != i) {
+        li <- paste0(li, "(x - ", x[j], ")/(", x[i], " - ", x[j], ")")
+        if (j != n && j != i) {
+          li <- paste0(li, " * ")
+        }
+      }
+    }
+    polynom <- paste0(polynom, ifelse(i == 1, "", " + "), y[i], " * (", li, ")")
+  }
+  
+  # Výpis polynomu, pouze pokud je print_polynom TRUE
+  if (print_polynom) {
+    cat("Předpis polynomu L(x):\n")
+    cat(polynom, "\n")
+  }
+  
+}
+
+# Zadané hodnoty z tabulky
+x <- c(-1, 0, 1, 3)
+y <- c(2, 1, 2, 0)
+
+Lagrange(x, y, print_polynom = TRUE)
+# Vizualizace
+plot(x, y, col = 'red', ylim = c(-10, 10), pch = 19, xlab = "x", ylab = "y", main = "Lagrange Interpolation")
+
+```
+
+Vypočítá hodnotu interpolačního polynomu v zadaném bodě $t$
 ```
 Lagrange <- function(t, x, y, print_polynom = FALSE) {
   n <- length(x)

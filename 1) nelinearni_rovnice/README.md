@@ -23,7 +23,7 @@ pak v intervalu $<a,b>$ leží alespoň jeden kořen rovnice $f(x)=0$.
 Používáme iterační metody, které počítají posloupnost ${x^k}$ konvergující pro $k→ ∞$ ke kořenu $\\overline{x}$ .
 
 ## **3. Metoda bisekce = metoda půlení intervalu**
-Plátí-li <p align="center">$f(a).f(b)<0$</p> pak v intervalu $<a,b>$ leží alespoň jeden kořen rovnice $f(x)=0$.
+Plátí-li $f(a).f(b)<0$ pak v intervalu $<a,b>$ leží alespoň jeden kořen rovnice $f(x)=0$.
 
 Intervaly postupně půlíme a jejich středy tvořící posloupnost ${x^k}$ konvergující ke kořenu $\\overline{x}$. Výpočet ukončíme při dosazení zadané přesnosti ϵ
 

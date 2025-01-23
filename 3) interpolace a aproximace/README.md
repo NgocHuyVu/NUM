@@ -173,7 +173,56 @@ Algoritmus:
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $D_i^k = \frac{D_i^{k-1} - D_{i-1}^{k-1}}{x_i - x_{i-k}}$
   
 - Výstup: $a_0=D_0^0$
+
+Zkonstruje a zobrazí interpolační polynom 
+```
+# Funkce pro výpočet koeficientů Newtonova interpolovaného polynomu
+NewtonPolCoef <- function(x, y){
+  n <- length(x)
+  coef <- numeric(n)
+  coef[1] <- y[1]
+  if(n > 1){
+    for(i in 2:n){
+      suma <- 0
+      nasobic <- 1
+      for(j in 1:(i-1)){
+        suma <- suma + coef[j] * nasobic
+        nasobic <- nasobic * (x[i] - x[j])
+      }
+      coef[i] <- (y[i] - suma) / nasobic
+    }
+  }
+  return(coef)
+}
+
+# Funkce pro generování předpisu Newtonova interpolačního polynomu ve formátu N(x)
+NewtonPolynomFormula <- function(x, coef){
+  n <- length(x)
+  formula <- as.character(coef[1])
   
+  for(i in 2:n){
+    # Vytvoření faktorů pro každý člen (x - x[j])
+    factors <- paste("(x -", x[1:(i-1)], ")", collapse = "")
+    formula <- paste(formula, " +", coef[i], factors)
+  }
+  
+  return(formula)
+}
+
+# Zadané hodnoty z tabulky
+x <- c(-1, 0, 1, 3)
+y <- c(2, 1, 2, 0)
+
+# Výpočet koeficientů Newtonova polynomu
+coef <- NewtonPolCoef(x, y)
+
+# Vytisknutí předpisu Newtonova polynomu ve správném formátu
+cat("\nPředpis Newtonova interpolačního polynomu:\n")
+cat("N(x) =", NewtonPolynomFormula(x, coef), "\n")
+
+```
+
+Vypočítá hodnotu interpolačního polynomu v zadaném bodě $t$
 ```
 # Vypočítá koeficienty Newtonova interpolovaného polynomu 
 # na základě dvou vektorů x a y, které obsahují hodnoty x a y daných bodů.

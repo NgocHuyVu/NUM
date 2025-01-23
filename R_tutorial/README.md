@@ -356,9 +356,10 @@ Data_Cars <- mtcars
 which.max(Data_Cars$hp)
 which.min(Data_Cars$hp)
 ```
-## Aplikace funkcí na růžné typy datových strukturu
 
-### apply() = Aplikace funkcí na řádky nebo sloupce matice
+# Aplikace funkcí na růžné typy datových strukturu
+
+## apply() = Aplikace funkcí na řádky nebo sloupce matice
 
 apply(matice, 1(řádky) nebo 2(sloupce), funkce)
 
@@ -370,7 +371,7 @@ apply(mat, 1, sum) # Součet hodnot v každém řádku
 apply(mat, 2, mean) # Průměr hodnot v každém sloupci
 ```
 
-### lapply() = Aplikace funckí na každý prvek seznamu nebo vektoru
+## lapply() = Aplikace funckí na každý prvek seznamu nebo vektoru
 
 lapply(seznam, funkce)
 
@@ -381,7 +382,7 @@ vektor <- 1:5
 lapply(vektor, function(x) x^2) # Druhá mocnina každého čísla
 ```
 
-### saplly() = Podobně jako lappy(), ale výstup je lepší formát
+## saplly() = Podobně jako lappy(), ale výstup je lepší formát
 
 lapply(seznam, funkce)
 
@@ -390,7 +391,7 @@ vektor <- 1:5
 sapply(vektor, function(x) x^2) # Druhá mocnina každého čísla jako vektor
 
 ```
-### tapply() = Aplikace funkcí na podskupiny vektoru, které jsou definovány faktory
+## tapply() = Aplikace funkcí na podskupiny vektoru, které jsou definovány faktory
 
 taplly(vektor, vektor faktorů určující skupiny, funkce)
 
@@ -399,3 +400,26 @@ hodnoty <- c(10, 20, 30, 40, 50)
 skupiny <- factor(c("A", "B", "A", "B", "A"))
 tapply(hodnoty, skupiny, sum) # Součet hodnot ve skupinách A a B
 ```
+
+# Sekvence hodnot = seq()
+
+Funkce seq() slouží k vytvoření sekvence hodnot, vytvoří posloupnost čísel s určitým krokem, délkou nebo v určitém rozsahu.
+
+seq(from = počateční hodnota sekvece, to = koncová hodnota sekvence, by = krok mezi jednotlivými hodnotami sekvenci)
+
+
+```
+seq(from = 1, to = 10, by = 2)
+seq(10, 1, by = -2)
+```
+
+Další argumenty:
+
+- length.out = počet určitých hodnot v sekvenci, ignoruje argument by
+  
+  ```
+  seq(from = 1, to = 10, length.out = 5)
+  ```
+- along.with = vytvoří sekvenci stejné délky jako zadaný vektor
+
+

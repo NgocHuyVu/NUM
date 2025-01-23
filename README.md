@@ -4,7 +4,7 @@
 
 Řešíme nelineární rovnice, která má jednu neznámou proměnnou.
 
-Pokud zadaná rovnice $f(x)=0$ je rovnice prvního stupeň, používáme **metodu bisekce = metodu půlení intervalu, metodu regula fasi, Newtonovou metodu = metodu tečen, metodu sečen**
+Pokud zadaná rovnice $f(x)=0$ je **rovnice prvního stupeň**, používáme **metodu bisekce = metodu půlení intervalu, metodu regula fasi, Newtonovou metodu = metodu tečen, metodu sečen**
 
 Pokud zadaná rovnice je rovnice polynomu n-tého stupně $P_n(x)$, budeme použit **Honerovo-Newtonovou metodu.**
 

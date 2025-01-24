@@ -516,7 +516,6 @@ diag(c(1, 2, 3))
 
 Funkce **runif()** generuje náhodná čísla z rovnoměrného rozdělení v zadaném intervalu. Hodnoty v rovnoměrném rozdělení mají stejnou pravděpodobnost výskytu.
 
-´´´
+```
 runif(n, min = 0, max = 1)
-
-´´´
+```

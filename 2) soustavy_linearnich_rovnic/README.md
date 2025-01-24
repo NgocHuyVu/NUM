@@ -258,7 +258,7 @@ Vlastní iterační proces probíhá tak, že
 ## 7. Jacobiova iterační metoda
 
 Algoritmus
-- Vstup: $\( n, A = \{ a_{ij} \}_{i,j=1}^{n}, \vec{b} = \{ b_i \}_{i=1}^{n}, \vec{x}^{(0)} = \{ x_i^{(0)} \}_{i=1}^{n}, m \)$
+- Vstup: $n$, $A = \{a_{ij} \}_{i,j=1}^{n}$, $\vec{b} = \{ b_i \}_{i=1}^{n}$, $\vec{x}^{(0)} = \{ x_i^{(0)} \}_{i=1}^{n}$, $m$
 - pro $k=0, 1, 2, ..., m$
   
   &nbsp;&nbsp;&nbsp; $i=0, 1, 2, ..., n$

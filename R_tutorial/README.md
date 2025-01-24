@@ -284,7 +284,72 @@ Hodnota jsou od 0 do 25
 ```
 plot(1:10, pch=25, cex=2)
 ```
+### Všechny prametry
 
+- Základní parametry:
+  - x: Data pro osu x.
+  - y: Data pro osu y (volitelné, pokud kreslíš například graf funkce).
+  - main: Nadpis grafu.
+  - sub: Podnadpis grafu.
+  - xlab: Popisek osy x.
+  - ylab: Popisek osy y.
+  - asp: Poměr os (např. asp = 1 pro čtvercovou mřížku).
+  - type: Typ grafu:
+    - "p": body (výchozí),
+    - "l": čáry,
+    - "b": body i čáry,
+    - "c": čáry bez bodů,
+    - "o": čáry přes body,
+    - "h": sloupce (h = histogram-style),
+    - "s": schody.
+
+- Parametry vzhledu bodů a čar:
+  - col: Barva bodů nebo čar. Může být název barvy ("red", "blue") nebo číslo (1, 2, ...).
+  - col.axis: Barva os.
+  - col.lab: Barva popisků os.
+  - col.main: Barva nadpisu.
+  - col.sub: Barva podnadpisu.
+  - pch: Typ symbolů (bodů): Čísla 1–25 odpovídají různým symbolům (kruh, čtverec, trojúhelník, ...).
+  - lty: Typ čáry: 1 = plná, 2 = čárkovaná, 3 = tečkovaná, 4 = čárkovaná-tečkovaná, ...
+  - lwd: Šířka čáry (výchozí hodnota je 1).
+  - cex: Velikost bodů.
+  - cex.axis: Velikost textu os.
+  - cex.lab: Velikost popisků os.
+  - cex.main: Velikost nadpisu.
+  - cex.sub: Velikost podnadpisu.
+
+- Parametry os:
+  - xlim: Rozsah osy x (např. xlim = c(0, 10)).
+  - ylim: Rozsah osy y (např. ylim = c(0, 100)).
+  - xaxt: Zobrazení osy x:
+    - "s": standardní,
+    - "n": žádná osa x.
+  - yaxt: Zobrazení osy y (stejné jako xaxt).
+  - axes: Zobrazení os (TRUE nebo FALSE).
+  - 
+- Parametry popisků a mřížky:
+  - las: Orientace popisků os:
+    - 0 = paralelní s osou,
+    - 1 = horizontální,
+    - 2 = vertikální,
+    - 3 = kolmé na osu.
+  - tck: Délka mřížkových čárek (kladná pro vnější čárky, záporná pro vnitřní).
+  - tcl: Délka čárek mřížky (alternativa k tck, vyjádřená v relativních hodnotách).
+  - bty: Typ rámečku kolem grafu:
+    - "o": plný rámeček,
+    - "l": pouze levý a spodní okraj,
+    - "7": pouze levý a horní okraj,
+    - "c", "u", "]", "n": žádný rámeček.
+
+- Další parametry:
+  - bg: Barva pozadí bodů (např. u symbolů jako pch = 21–25).
+  - fg: Barva popředí grafu.
+  - adj: Zarovnání textu nadpisu (např. adj = 0 vlevo, adj = 1 vpravo).
+  - mar: Okraje grafu (vektor čtyř hodnot: c(bottom, left, top, right)).
+  - oma: Vnější okraje (podobné jako mar, ale ovlivňuje celý grafický region).
+  - mfrow: Rozdělení plochy na několik grafů (např. mfrow = c(2, 2) pro 2x2).
+  - add: Přidání prvků do stávajícího grafu (TRUE nebo FALSE).
+  
 ## Line
 
 ### Barva čárky (col)
@@ -423,3 +488,35 @@ Další argumenty:
 - along.with = vytvoří sekvenci stejné délky jako zadaný vektor
 
 
+# Matice
+
+## solve() 
+Funkce **solve()** používá pro řešení soustav lineárních rovnic.
+
+```
+# Matice koeficientů
+A <- matrix(c(2, 1, 3, -1), nrow = 2, byrow = TRUE)
+
+# Vektor konstant
+b <- c(8, 2)
+
+# Řešení soustavy
+x <- solve(A, b)
+
+print(x)
+```
+## diag()
+
+Funkce **diag()** slouží k vytvoření diagonální matice.
+
+```
+diag(c(1, 2, 3))
+```
+# Náhodná čísla
+
+Funkce **runif()** generuje náhodná čísla z rovnoměrného rozdělení v zadaném intervalu. Hodnoty v rovnoměrném rozdělení mají stejnou pravděpodobnost výskytu.
+
+´´´
+runif(n, min = 0, max = 1)
+
+´´´
